@@ -1,8 +1,10 @@
 import os
+import json
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives.ciphers import (Cipher, algorithms, modes)
 from cryptography.hazmat.primitives import (padding, hashes, hmac)
 
+fileToEncrypt = 'image.jpg'
 
 def MyEncryptMac(message, EncKey, HMACKey):
     padder = padding.PKCS7(128).padder()
@@ -22,11 +24,24 @@ def MyEncryptMac(message, EncKey, HMACKey):
     tag = t.finalize()
     return cipherText, iv, tag
 
-def MyFileDecrypt(filename, key, iv, tag, HMACKey):
-    file = open(filename, "rb")
-    fileBytes = file.read()
-    message = MyDecrypt(fileBytes, key, iv, tag, HMACKey)
-    return message
+def MyFileDecrypt(filename):
+    # Decrypt the file
+    decryptThis = open(fileName, "r")
+    fileContents = decryptThis.read()
+    jsonUndone = json.loads(fileContents)
+
+    citBytes = jsonUndone["cipherText"].encode('ISO-8859-1')
+    key = jsonUndone["key"].encode('ISO-8859-1')
+    iv = jsonUndone["iv"].encode('ISO-8859-1')
+    tag = jsonUndone["tag"].encode('ISO-8859-1')
+    HMACKey = jsonUndone["HMACKey"].encode('ISO-8859-1')
+    ext = jsonUndone["extension"]
+    print(type(HMACKey))
+
+    print("HMACKEY After: ", HMACKey)
+
+    message = MyDecrypt(citBytes, key, iv, tag, HMACKey)
+    return message, ext
 
 def MyDecrypt(cipherText, key, iv, tag, HMACKey):
     # Create a tag from the ciphertext
@@ -68,18 +83,28 @@ def MyFileEncrypt(filepath):
 def getExtension(filepath):
     return os.path.splitext(filepath)[1]
 
-cit, tag, iv, key, ext, hkey = MyFileEncrypt("image.jpg")
-# Optionally encrypt a separate file to have a tag to test the decryption verification
-# cit2, tag2, iv2, key2, ext2, hkey2 = MyFileEncrypt("testText2.txt")
+# cit, tag, iv, key, ext, hkey = MyFileEncrypt(fileToEncrypt)
+# # Optionally encrypt a separate file to have a tag to test the decryption verification
+# # cit2, tag2, iv2, key2, ext2, hkey2 = MyFileEncrypt("testText2.txt")
+#
+# jsonData = {}
+# jsonData['cipherText'] = cit.decode('ISO-8859-1')
+# jsonData['tag'] = tag.decode('ISO-8859-1')
+# jsonData['iv'] = iv.decode('ISO-8859-1')
+# jsonData['key'] = key.decode('ISO-8859-1')
+# jsonData['extension'] = ext
+# jsonData['HMACKey'] = hkey.decode('ISO-8859-1')
+#
+# jsonObj = json.dumps(jsonData)
+# print(hkey)
+# #os.remove(fileToEncrypt)
+fileName = "encrypted.json"
+# f = open(fileName, "w")
+# f.write(jsonObj)
+# f.close()
 
-fileName = "encrypted" + ext
-f = open(fileName, "wb")
-f.write(cit)
-f.close()
 
-# Get the message
-message = MyFileDecrypt(fileName, key, iv, tag, hkey)
-# Create a new file for the message
+message, ext = MyFileDecrypt(fileName)
 newFileName = "decrypted" + ext
 newFile = open(newFileName, "wb")
 # Write the message to the file

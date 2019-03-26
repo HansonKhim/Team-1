@@ -11,9 +11,9 @@ def MyEncryptMac(message, EncKey, HMACKey):
     iv = os.urandom(16)
     cipher = Cipher(algorithms.AES(EncKey), modes.CBC(iv), backend=default_backend())
     encryptor = cipher.encryptor()
-    buffer = bytearray((len(message) + 32 -1 ))
-    encrypted = encryptor.update_into(paddedToEncrypt, buffer)
-    cipherText = bytes(buffer[:encrypted]) + encryptor.finalize()
+    #buffer = bytearray((len(message) + 32 -1 ))
+    #encrypted = encryptor.update_into(paddedToEncrypt, buffer)
+    cipherText = (encryptor.update(paddedToEncrypt) + encryptor.finalize())
     # Create tag object
     t = hmac.HMAC(HMACKey, hashes.SHA256(), backend=default_backend())
     # Create tag from ciphertext
@@ -46,12 +46,8 @@ def MyDecrypt(cipherText, key, iv, tag, HMACKey):
     cipher = Cipher(algorithms.AES(key), modes.CBC(iv), backend=default_backend())
     # Create a decryptor
     decryptor = cipher.decryptor()
-    # Create the buffer
-    buffer = bytearray((len(cipherText)+32-1))
-    # Add ciphertext to the buffer byte array
-    len_decrypted = decryptor.update_into(cipherText, buffer)
     # Pass the ciphertext through the decryptor and get all of the data out of the decryptor using finalize
-    string = bytes(buffer[:len_decrypted]) + decryptor.finalize()
+    string = decryptor.update(cipherText) + decryptor.finalize()
     # Remove padding
     unpadder = padding.PKCS7(128).unpadder()
     unpadded = unpadder.update(string)
@@ -73,7 +69,8 @@ def getExtension(filepath):
     return os.path.splitext(filepath)[1]
 
 cit, tag, iv, key, ext, hkey = MyFileEncrypt("image.jpg")
-cit2, tag2, iv2, key2, ext2, hkey2 = MyFileEncrypt("testText2.txt")
+# Optionally encrypt a separate file to have a tag to test the decryption verification
+# cit2, tag2, iv2, key2, ext2, hkey2 = MyFileEncrypt("testText2.txt")
 
 fileName = "encrypted" + ext
 f = open(fileName, "wb")

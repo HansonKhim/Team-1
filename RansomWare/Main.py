@@ -83,29 +83,32 @@ def MyFileEncrypt(filepath):
 def getExtension(filepath):
     return os.path.splitext(filepath)[1]
 
-# cit, tag, iv, key, ext, hkey = MyFileEncrypt(fileToEncrypt)
+cit, tag, iv, key, ext, hkey = MyFileEncrypt(fileToEncrypt)
 # # Optionally encrypt a separate file to have a tag to test the decryption verification
 # # cit2, tag2, iv2, key2, ext2, hkey2 = MyFileEncrypt("testText2.txt")
-#
-# jsonData = {}
-# jsonData['cipherText'] = cit.decode('ISO-8859-1')
-# jsonData['tag'] = tag.decode('ISO-8859-1')
-# jsonData['iv'] = iv.decode('ISO-8859-1')
-# jsonData['key'] = key.decode('ISO-8859-1')
-# jsonData['extension'] = ext
-# jsonData['HMACKey'] = hkey.decode('ISO-8859-1')
-#
-# jsonObj = json.dumps(jsonData)
-# print(hkey)
-# #os.remove(fileToEncrypt)
-fileName = "encrypted.json"
-# f = open(fileName, "w")
-# f.write(jsonObj)
-# f.close()
+
+#Create JSON formatted data
+jsonData = {}
+jsonData['cipherText'] = cit.decode('ISO-8859-1')
+jsonData['tag'] = tag.decode('ISO-8859-1')
+jsonData['iv'] = iv.decode('ISO-8859-1')
+jsonData['key'] = key.decode('ISO-8859-1')
+jsonData['extension'] = ext
+jsonData['HMACKey'] = hkey.decode('ISO-8859-1')
+
+# Dump the JSON data into the object
+jsonObj = json.dumps(jsonData)
+# Delete original file
+os.remove(fileToEncrypt)
+# Create encrypted json file named the same as the original file with different extension
+fileName = os.path.splitext(fileToEncrypt)[0] + ".json"
+f = open(fileName, "w")
+f.write(jsonObj)
+f.close()
 
 
-message, ext = MyFileDecrypt(fileName)
-newFileName = "decrypted" + ext
-newFile = open(newFileName, "wb")
-# Write the message to the file
-newFile.write(message)
+# message, ext = MyFileDecrypt(fileName)
+# newFileName = "decrypted" + ext
+# newFile = open(newFileName, "wb")
+# # Write the message to the file
+# newFile.write(message)

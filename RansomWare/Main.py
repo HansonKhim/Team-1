@@ -17,23 +17,25 @@ def FindFiles(root, path):
     return 0
 
 def MyRSAEncrypt(filepath, RSA_Publickey_filepath):
+    # Encrypt the file
     C, tag, IV, key, ext, hkey = MyFileEncrypt(filepath)
-
+    # Load the public key from file
     public_key = serialization.load_pem_private_key(RSA_Publickey_filepath.read(),password = None,backend = default_backend())
-
+    # Use the RSA Public Key to encrypt the key and HMAC key
     RSACipher = public_key.encrypt((key+hkey), padding.OAEP(mgf = padding.MGF1(algorithm=hashes.SHA256()),algorithm = hashes.SHA256(),label = None))
-
+    # Return the encrypted Key and HMACKey as well as the other information needed for decryption
     return RSACipher, C, IV, tag, ext
 
 def MyRSADecrypt(RSACipher, C, IV, tag, ext, RSA_Privatekey_filepath):
+    # Get the plaintext from the RSACipher
     RSAPlain = RSA_Privatekey_filepath.decrypt(C,padding.OAEP(mgf = padding.MGF1(algorithm=hashes.SHA256()),algorithm = hashes.SHA256(),label = None))
-
+    # Separate the Key and HMACKeys
     key = RSAPlain[0:255]
     hkey = RSAPlain[256:len(RSAPlain)]
-
+    # Decrypt the ciphertext using the keys
     message = MyDecrypt(C, key, IV, tag, hkey)
-
-    print(message)
+    # Display Message
+    print(message) ### CHANGE THIS LINE TO RETURN A FILE INSTEAD OF PRINTING THE MESSAGE ###
 
     return 0
 

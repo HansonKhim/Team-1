@@ -118,36 +118,36 @@ def MyFileEncrypt(filepath):
 def getExtension(filepath):
     return os.path.splitext(filepath)[1]
 
-def createJSON(cit, tag, iv, key, ext, hkey):
+def createJSON(cit, tag, iv, ext, RSACipher):
     jsonData = {}
     jsonData['cipherText'] = cit.decode('ISO-8859-1')
     jsonData['tag'] = tag.decode('ISO-8859-1')
     jsonData['iv'] = iv.decode('ISO-8859-1')
-    jsonData['key'] = key.decode('ISO-8859-1')
+    jsonData['RSACipher'] = RSACipher.decode('ISO-8859-1')
     jsonData['extension'] = ext
-    jsonData['HMACKey'] = hkey.decode('ISO-8859-1')
     return json.dumps(jsonData)
 
-cit, tag, iv, key, ext, hkey = MyFileEncrypt(fileToEncrypt)
-# # Optionally encrypt a separate file to have a tag to test the decryption verification
-# # cit2, tag2, iv2, key2, ext2, hkey2 = MyFileEncrypt("testText2.txt")
+def createFile(fileName, jsonObj):
+    f = open(fileName, "w")
+    f.write(jsonObj)
+    f.close()
 
-#Create JSON formatted data
 
 
-# Dump the JSON data into the object
-jsonObj = createJSON(cit, tag, iv, key, ext, hkey)
+## TESTING FUNCTIONS HERE ##
+# Encrypt the file contents
+
+#cit, tag, iv, key, ext, hkey = MyFileEncrypt(fileToEncrypt)
+
+################################################################
+# This line of code needs the filepath to the public key to work
+#RSACipher, cit, iv, tag, ext = MyRSAEncrypt(fileToEncrypt, getPublicKeyFilePath())
+################################################################
+
+# Create and dump the JSON data into the object
+jsonObj = createJSON(cit, tag, iv, ext, RSACipher)
 # Delete original file
 os.remove(fileToEncrypt)
 # Create encrypted json file named the same as the original file with different extension
 fileName = os.path.splitext(fileToEncrypt)[0] + ".json"
-f = open(fileName, "w")
-f.write(jsonObj)
-f.close()
-
-
-# message, ext = MyFileDecrypt(fileName)
-# newFileName = "decrypted" + ext
-# newFile = open(newFileName, "wb")
-# # Write the message to the file
-# newFile.write(message)
+createFile(fileName, jsonObj)

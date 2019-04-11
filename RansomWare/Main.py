@@ -2,7 +2,8 @@ import os
 import json
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives.ciphers import (Cipher, algorithms, modes)
-from cryptography.hazmat.primitives import (padding, hashes, hmac)
+from cryptography.hazmat.primitives.asymmetric import rsa
+from cryptography.hazmat.primitives import (padding, hashes, hmac, serialization)
 
 fileToEncrypt = 'image.jpg'
 root = "/TestFiles"
@@ -13,6 +14,27 @@ def FindFiles(root, path):
     for path, subdirs, files in os.walk(root):
         for name in files:
             print(os.path.join(path, name))
+    return 0
+
+def MyRSAEncrypt(filepath, RSA_Publickey_filepath):
+    C, tag, IV, key, ext, hkey = MyFileEncrypt(filepath)
+
+    public_key = serialization.load_pem_private_key(RSA_Publickey_filepath.read(),password = None,backend = default_backend())
+
+    RSACipher = public_key.encrypt((key+hkey), padding.OAEP(mgf = padding.MGF1(algorithm=hashes.SHA256()),algorithm = hashes.SHA256(),label = None))
+
+    return RSACipher, C, IV, tag, ext
+
+def MyRSADecrypt(RSACipher, C, IV, tag, ext, RSA_Privatekey_filepath):
+    RSAPlain = RSA_Privatekey_filepath.decrypt(C,padding.OAEP(mgf = padding.MGF1(algorithm=hashes.SHA256()),algorithm = hashes.SHA256(),label = None))
+
+    key = RSAPlain[0:255]
+    hkey = RSAPlain[256:len(RSAPlain)]
+
+    message = MyDecrypt(C, key, IV, tag, hkey)
+
+    print(message)
+
     return 0
 
 FindFiles(root, path)

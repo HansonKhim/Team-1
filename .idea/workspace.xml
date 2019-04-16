@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1735481b-f410-470c-bdcf-0f6a1e7e0c34" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/RansomWare/TestFiles/image.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RansomWare/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/RansomWare/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RansomWare/TestFiles/Images/image.json" beforeDir="false" afterPath="$PROJECT_DIR$/RansomWare/TestFiles/Images/image.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RansomWare/TestFiles/Texts/testText.json" beforeDir="false" afterPath="$PROJECT_DIR$/RansomWare/TestFiles/Texts/testText.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,20 +18,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/RansomWare/Main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1609">
-              <caret line="86" column="32" lean-forward="true" selection-start-line="86" selection-start-column="32" selection-end-line="86" selection-end-column="32" />
+            <state relative-caret-position="620">
+              <caret line="228" column="1" lean-forward="true" selection-start-line="228" selection-start-column="1" selection-end-line="228" selection-end-column="1" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/cryptography/hazmat/backends/openssl/rsa.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="406" selection-start-line="406" selection-end-line="406" />
             </state>
           </provider>
         </entry>
@@ -180,14 +174,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="960" height="1050" extended-state="0" />
+    <frame x="960" y="0" width="960" height="1050" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2516269" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.17973857" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.17973857" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3929336" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -241,9 +236,7 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/RansomWare/TestFiles/image7.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/RansomWare/TestFiles/image7.json" />
     <entry file="file://$PROJECT_DIR$/RansomWare/image.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -251,13 +244,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/cryptography/hazmat/backends/openssl/rsa.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="406" selection-start-line="406" selection-end-line="406" />
         </state>
       </provider>
     </entry>
@@ -274,11 +260,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/RansomWare/Main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1609">
-          <caret line="86" column="32" lean-forward="true" selection-start-line="86" selection-start-column="32" selection-end-line="86" selection-end-column="32" />
+        <state relative-caret-position="620">
+          <caret line="228" column="1" lean-forward="true" selection-start-line="228" selection-start-column="1" selection-end-line="228" selection-end-column="1" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/cryptography/hazmat/backends/openssl/rsa.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6613">
+          <caret line="406" selection-start-line="406" selection-end-line="406" />
         </state>
       </provider>
     </entry>

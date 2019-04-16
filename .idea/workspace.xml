@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1735481b-f410-470c-bdcf-0f6a1e7e0c34" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RansomWare/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/RansomWare/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RansomWare/TestFiles/New folder (2)/image - Copy (2).json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RansomWare/TestFiles/New folder (2)/image - Copy.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RansomWare/TestFiles/New folder (2)/image.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RansomWare/TestFiles/New folder/image.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RansomWare/TestFiles/image - Copy (2).json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RansomWare/TestFiles/image - Copy (3).json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RansomWare/TestFiles/image - Copy (4).json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RansomWare/TestFiles/image - Copy (5).json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RansomWare/TestFiles/image - Copy.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RansomWare/TestFiles/image7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RansomWare/TestFiles/image.json" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,35 +10,12 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$USER_HOME$/Downloads/rsaEncrypt.py">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="590">
-                    <caret line="81" column="25" lean-forward="true" selection-start-line="81" selection-start-column="25" selection-end-line="81" selection-end-column="25" />
-                    <folding>
-                      <element signature="e#109#118#0" expanded="true" />
-                      <element signature="e#520#1777#0" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/RansomWare/Main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1751">
+            <state relative-caret-position="-1609">
               <caret line="86" column="32" lean-forward="true" selection-start-line="86" selection-start-column="32" selection-end-line="86" selection-end-column="32" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
@@ -203,19 +169,25 @@
       <option name="project" value="LOCAL" />
       <updated>1555013428424</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="RSA works with decryption and encryption.&#10;(Might want to change how items are stored and decrypted)">
+      <created>1555397785144</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1555397785144</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="960" height="1050" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2516269" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.17973857" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.17973857" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3929336" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -254,7 +226,8 @@
     <MESSAGE value="reuploaded" />
     <MESSAGE value="Added Script to search for files in directory" />
     <MESSAGE value="Current" />
-    <option name="LAST_COMMIT_MESSAGE" value="Current" />
+    <MESSAGE value="RSA works with decryption and encryption.&#10;(Might want to change how items are stored and decrypted)" />
+    <option name="LAST_COMMIT_MESSAGE" value="RSA works with decryption and encryption.&#10;(Might want to change how items are stored and decrypted)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -301,7 +274,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/RansomWare/Main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1751">
+        <state relative-caret-position="-1609">
           <caret line="86" column="32" lean-forward="true" selection-start-line="86" selection-start-column="32" selection-end-line="86" selection-end-column="32" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />

@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1735481b-f410-470c-bdcf-0f6a1e7e0c34" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RansomWare/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/RansomWare/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RansomWare/TestFiles/Images/image.json" beforeDir="false" afterPath="$PROJECT_DIR$/RansomWare/TestFiles/Images/image.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RansomWare/TestFiles/Texts/testText.json" beforeDir="false" afterPath="$PROJECT_DIR$/RansomWare/TestFiles/Texts/testText.json" afterDir="false" />
-    </list>
+    <list default="true" id="1735481b-f410-470c-bdcf-0f6a1e7e0c34" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +13,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/RansomWare/Main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="620">
-              <caret line="228" column="1" lean-forward="true" selection-start-line="228" selection-start-column="1" selection-end-line="228" selection-end-column="1" />
+            <state relative-caret-position="334">
+              <caret line="216" column="22" lean-forward="true" selection-start-line="216" selection-start-column="22" selection-end-line="216" selection-end-column="22" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -39,7 +34,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="width" value="960" />
     <option name="height" value="1050" />
   </component>
@@ -170,11 +165,18 @@
       <option name="project" value="LOCAL" />
       <updated>1555397785144</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="RSA works with images again">
+      <created>1555437278554</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1555437278554</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="960" y="0" width="960" height="1050" extended-state="0" />
+    <frame x="0" y="0" width="960" height="1050" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2516269" />
@@ -222,7 +224,8 @@
     <MESSAGE value="Added Script to search for files in directory" />
     <MESSAGE value="Current" />
     <MESSAGE value="RSA works with decryption and encryption.&#10;(Might want to change how items are stored and decrypted)" />
-    <option name="LAST_COMMIT_MESSAGE" value="RSA works with decryption and encryption.&#10;(Might want to change how items are stored and decrypted)" />
+    <MESSAGE value="RSA works with images again" />
+    <option name="LAST_COMMIT_MESSAGE" value="RSA works with images again" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -260,8 +263,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/RansomWare/Main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="228" column="1" lean-forward="true" selection-start-line="228" selection-start-column="1" selection-end-line="228" selection-end-column="1" />
+        <state relative-caret-position="334">
+          <caret line="216" column="22" lean-forward="true" selection-start-line="216" selection-start-column="22" selection-end-line="216" selection-end-column="22" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

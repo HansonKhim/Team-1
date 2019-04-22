@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1735481b-f410-470c-bdcf-0f6a1e7e0c34" name="Default Changelist" comment="" />
+    <list default="true" id="1735481b-f410-470c-bdcf-0f6a1e7e0c34" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,11 +15,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/RansomWare/Main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="216" column="22" lean-forward="true" selection-start-line="216" selection-start-column="22" selection-end-line="216" selection-end-column="22" />
+            <state relative-caret-position="544">
+              <caret line="261" selection-start-line="261" selection-end-line="261" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/cryptography/hazmat/backends/openssl/rsa.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1972">
+              <caret line="133" column="9" selection-start-line="133" selection-start-column="9" selection-end-line="133" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -34,15 +45,21 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="708" />
+    <option name="y" value="-10" />
     <option name="width" value="960" />
     <option name="height" value="1050" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -55,11 +72,23 @@
               <item name="Team-1" type="462c0819:PsiDirectoryNode" />
               <item name="RansomWare" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Team-1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Team-1" type="462c0819:PsiDirectoryNode" />
+              <item name="RansomWare" type="462c0819:PsiDirectoryNode" />
+              <item name="TestFiles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Team-1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Team-1" type="462c0819:PsiDirectoryNode" />
+              <item name="RansomWare" type="462c0819:PsiDirectoryNode" />
+              <item name="TestFiles" type="462c0819:PsiDirectoryNode" />
+              <item name="EncryptThese" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -176,10 +205,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="960" height="1050" extended-state="1" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2516269" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18282403" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -191,7 +220,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.30610022" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.25695932" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -225,7 +254,9 @@
     <MESSAGE value="Current" />
     <MESSAGE value="RSA works with decryption and encryption.&#10;(Might want to change how items are stored and decrypted)" />
     <MESSAGE value="RSA works with images again" />
-    <option name="LAST_COMMIT_MESSAGE" value="RSA works with images again" />
+    <MESSAGE value="something" />
+    <MESSAGE value="Redownloaded all the files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Redownloaded all the files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -240,9 +271,7 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/RansomWare/TestFiles/image7.json" />
-    <entry file="file://$PROJECT_DIR$/RansomWare/image.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/RansomWare/image.json" />
     <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/cryptography/hazmat/primitives/ciphers/algorithms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -263,8 +292,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/RansomWare/Main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="216" column="22" lean-forward="true" selection-start-line="216" selection-start-column="22" selection-end-line="216" selection-end-column="22" />
+        <state relative-caret-position="544">
+          <caret line="261" selection-start-line="261" selection-end-line="261" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
@@ -273,8 +302,8 @@
     </entry>
     <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/cryptography/hazmat/backends/openssl/rsa.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6613">
-          <caret line="406" selection-start-line="406" selection-end-line="406" />
+        <state relative-caret-position="1972">
+          <caret line="133" column="9" selection-start-line="133" selection-start-column="9" selection-end-line="133" selection-end-column="9" />
         </state>
       </provider>
     </entry>

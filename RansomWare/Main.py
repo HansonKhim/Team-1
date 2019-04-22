@@ -87,6 +87,25 @@ def didWeEncrypt(filepath):
         # We didn't because createdBy doesn't exist
         return 0
 
+
+def decDirectory(directory):
+    for path, subdirs, files in os.walk(directory):
+        for name in files:
+            filename = os.path.join(path, name)
+            try:
+                if (not didWeEncrypt(filename)):
+                # We encrypted it already
+                    break
+
+                m, e = MyFileDecrypt(filename, rsa_private_key_file_path)
+                decrypted_file = open(os.path.splitext(filename)[0] + e, "wb")
+                decrypted_file.write(m)
+                decrypted_file.close()
+                os.remove(filename)
+            except:
+                print(filename + " is not encrypted/ or is not encrypted by us")
+
+
 def MyRSAEncrypt(filepath, RSA_Publickey_filepath):
     # Encrypt the file
     C, tag, IV, key, ext, hkey = MyFileEncrypt(filepath)
@@ -233,7 +252,7 @@ def createFile(fileName, jsonObj):
     f.write(jsonObj)
     f.close()
 
-name = """  _______                         ___   
+name = """  _______                        ___   
  |__   __|                       |_  |
     | | ___   _____  _______   __  | |
     | |/ _ \ / _   ||       | |__| | |
@@ -252,9 +271,9 @@ selection = input("Enter your selection: ")
 
 if(selection == '1'):
     encDirectory(rootDirectory)
-elif(selection == '21'):
+elif(selection == '2'):
     #DECRYPT CALL
-    print("")
+    decDirectory(rootDirectory)
 else:
     print("Invalid Selection")
 
